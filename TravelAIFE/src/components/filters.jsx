@@ -26,13 +26,31 @@ const Filters = () => {
             }) 
     }
 
+    const handleEnvironment = (selectedEnvironment) => {
+        setEnvironment(selectedEnvironment)
+        console.log(selectedEnvironment)
+    }
+
     return(
         <>
         <div>
-            
+            <h1>Travel Oracle</h1>
+            <h3>Environment</h3>
+                <button onClick={() => handleEnvironment("Coastal")}>Coastal</button>
+                <button onClick={() => handleEnvironment("Mountains")}>Mountains</button>
+                <button onClick={() => handleEnvironment("Urban")}>Urban</button>
+            <h3>Continent/Area</h3>
+                <button onClick={() => handleEnvironment("Europe")}>Europe</button>
+                <button>Asia</button>
+                <button>Africa</button>
+                <button>South America</button>
+                <button>Middle East</button>
+                <button>Caribbean</button>
+            <button onClick={handlePost}>Generate</button>
         </div>
         </>
     )
 
 
 }
+export default Filters
