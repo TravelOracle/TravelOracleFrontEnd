@@ -46,6 +46,7 @@ const Filters = () => {
                 <button>South America</button>
                 <button>Middle East</button>
                 <button>Caribbean</button>
+                <button>South East Asia</button>
             <button onClick={handlePost}>Generate</button>
         </div>
         </>
