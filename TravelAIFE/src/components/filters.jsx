@@ -1,7 +1,13 @@
 import { useState } from "react";
 import axios from "axios";
+import * as React from "react";
+
 
 const Filters = () => {
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => {
+        setOpen(!open);
+      };
     const [environment, setEnvironment] = useState("Mountains");
     const [interest, setInterest] = useState("");
     const [travelBudget, setTravelBudget] = useState("");
@@ -65,19 +71,39 @@ const Filters = () => {
         setEnvironment(event.target.value)
         console.log(event)
       }
-
+      const handleMenuOne = () => {
+        // do something
+        setOpen(false);
+      };
+    
+      const handleMenuTwo = () => {
+        // do something
+        setOpen(false);
+      };
     return(
         <>
         <div>
             <h1 class="appTitle">Travel Oracle</h1>
             <h3 class="filterTitle">Environment</h3>
-            <label for="env-names">Choose an Environment:</label>
-                <select name="env-names" id="env-names" value={environment} onChange={selectedEnvironment}>
-                    <option value="Mountains">Mountains</option>
-                    <option value="dave">Dave</option>
-                    <option value="pumpernickel">Pumpernickel</option>
-                    <option value="reeses">Reeses</option>
-                </select>
+            <div>
+                <button onClick={handleOpen}>Dropdown</button>
+                {open ? (
+                    <ul className="menu">
+                    <li className="menu-item"> 
+                         <button onClick={handleMenuOne}>Menu 1</button>
+                    </li>
+                    <li className="menu-item">
+                     <button onClick={handleMenuTwo}>Menu 2</button>
+                    </li>
+                    </ul>
+                  ) : null}
+                  {open ? <div>Is Open</div> : <div>Is Closed</div>}
+                 </div>
+                 <br />
+                 <br />
+                 <br />
+                 <br />
+                 <br />
                 <button class="button-85" role="button" onClick={() => handleEnvironment("Coastal")}>Coastal</button>
                 <button class="button-85" role="button" onClick={() => handleEnvironment("Mountains")}>Mountains</button>
                 <button class="button-85" role="button" onClick={() => handleEnvironment("Urban")}>Urban</button>
