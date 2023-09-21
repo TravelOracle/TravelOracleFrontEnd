@@ -1,13 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
 import * as React from "react";
-
+import Dropdown from "./dropdown";
 
 const Filters = () => {
     const [open, setOpen] = React.useState(false);
-    const handleOpen = () => {
-        setOpen(!open);
-      };
     const [environment, setEnvironment] = useState("Mountains");
     const [interest, setInterest] = useState("");
     const [travelBudget, setTravelBudget] = useState("");
@@ -32,85 +29,96 @@ const Filters = () => {
             }) 
     }
 
+    const handleOpen = () => {
+        setOpen(!open);
+      };
+
     const handleEnvironment = (selectedEnvironment) => {
         setEnvironment(selectedEnvironment)
         console.log(selectedEnvironment)
+        setOpen(true);
     }
 
     const handleInterest = (selectedInterest) => {
         setInterest(selectedInterest)
         console.log(selectedInterest)
+        setOpen(true);
     }
 
     const handleTravelBudget = (selectedTravelBudget) => {
         setTravelBudget(selectedTravelBudget)
         console.log(selectedTravelBudget)
+        setOpen(true);
     }
 
     const handleHome = (selectedHome) => {
         setHome(selectedHome)
         console.log(selectedHome)
+        setOpen(true);
     }
 
     const handleClimate = (selectedClimate) => {
         setClimate(selectedClimate)
         console.log(selectedClimate)
+        setOpen(true);
     }
 
     const handleTravelGroup = (selectedTravelGroup) => {
         setTravelGroup(selectedTravelGroup)
         console.log(selectedTravelGroup)
+        setOpen(true);
     }
 
     const handleContinent = (selectedContinent) => {
         setContinent(selectedContinent)
         console.log(selectedContinent)
+        setOpen(true);
     }
 
-    function selectedEnvironment(event){
-        setEnvironment(event.target.value)
-        console.log(event)
-      }
-      const handleMenuOne = () => {
-        // do something
-        setOpen(false);
-      };
+    //   const handleMenuOne = () => {
+    //     console.log('clicked one');
+    //     setOpen(true);
+    //   };
     
-      const handleMenuTwo = () => {
-        // do something
-        setOpen(false);
-      };
+    //   const handleMenuTwo = () => {
+    //     console.log('clicked two');
+    //     setOpen(true);
+    //   };
+
     return(
         <>
         <div>
             <h1 class="appTitle">Travel Oracle</h1>
-            <h3 class="filterTitle">Environment</h3>
-            <div>
-                <button onClick={handleOpen}>Dropdown</button>
-                {open ? (
-                    <ul className="menu">
-                    <li className="menu-item"> 
-                         <button onClick={handleMenuOne}>Menu 1</button>
-                    </li>
-                    <li className="menu-item">
-                     <button onClick={handleMenuTwo}>Menu 2</button>
-                    </li>
-                    </ul>
-                  ) : null}
-                  {open ? <div>Is Open</div> : <div>Is Closed</div>}
-                 </div>
+        <Dropdown
+            open={open}
+            trigger={<button onClick={handleOpen}>Environment</button>}
+            menu={[
+                <button onClick={() => handleEnvironment("Coastal")}>Coastal</button>,
+                <button onClick={() => handleEnvironment("Mountains")}>Mountains</button>,
+                <button onClick={() => handleEnvironment("Urban")}>Urban</button>,
+                <button onClick={() => handleEnvironment("Countryside")}>Countryside</button>,
+                <button onClick={() => handleEnvironment("Arid")}>Arid</button>,
+                <button onClick={() => handleEnvironment("Forest")}>Forest</button>,
+                <button onClick={() => handleEnvironment("Tropical")}>Tropical</button>,
+            ]}
+        />
+        
                  <br />
                  <br />
                  <br />
                  <br />
                  <br />
-                <button class="button-85" role="button" onClick={() => handleEnvironment("Coastal")}>Coastal</button>
-                <button class="button-85" role="button" onClick={() => handleEnvironment("Mountains")}>Mountains</button>
-                <button class="button-85" role="button" onClick={() => handleEnvironment("Urban")}>Urban</button>
-                <button class="button-85" role="button" onClick={() => handleEnvironment("Countryside")}>Countryside</button>
-                <button class="button-85" role="button" onClick={() => handleEnvironment("Arid")}>Arid</button>
-                <button class="button-85" role="button" onClick={() => handleEnvironment("Forest")}>Forest</button>
-                <button class="button-85" role="button" onClick={() => handleEnvironment("Tropical")}>Tropical</button>
+                 <br />
+                 <br />
+                 <br />
+                 <br />
+                 <br />
+                 <br />
+                 <br />
+                 <br />
+                 <br />
+                 <br />
+
             <h3 class="filterTitle">Continent/Area</h3>
                 <button class="button-85" role="button" onClick={() => handleContinent("Europe")}>Europe</button>
                 <button class="button-85" role="button" onClick={() => handleContinent("Asia")}>Asia</button>
