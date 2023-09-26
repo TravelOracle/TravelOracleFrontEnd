@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import * as React from "react";
 import Dropdown from "./dropdown";
@@ -12,6 +12,7 @@ const Filters = () => {
     const [climate, setClimate] = useState("");
     const [travelGroup, setTravelGroup] = useState("");
     const [continent, setContinent] = useState("");
+    const [outputText, setOutputText] = useState("");
 
     const handlePost = () => {
         axios
@@ -28,6 +29,15 @@ const Filters = () => {
 
             }) 
     }
+
+    useEffect (() => {
+        axios
+            .get("http://127.0.0.1:8000/api/filter/generate")
+            .then((response) => {
+                setOutputText(response.data.outputText)
+            })
+            
+    })
 
     const handleOpen = () => {
         setOpen(!open);
@@ -163,6 +173,7 @@ const Filters = () => {
                 <button className="button-85" role="button" onClick={() => handleTravelGroup("3-4 people")}>3-4 people</button>
                 <button className="button-85" role="button" onClick={() => handleTravelGroup("5 or more")}>5 or more</button>
             <button className="button-74" role="button" onClick={handlePost}>Generate</button>
+            <h3>{outputText}</h3>
         </div>
         </>
     )
