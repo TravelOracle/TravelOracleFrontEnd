@@ -26,8 +26,9 @@ const Filters = () => {
                 continent: continent,
             })
             .then ((response) => {
-                setOutputText(response.data.outputText)
-
+                console.log("Response received:", response.data);
+                setOutputText(response.data.outputText);
+                
             }) 
     }
 
@@ -173,8 +174,10 @@ const Filters = () => {
                 <button className="button-85" role="button" onClick={() => handleTravelGroup("2 people")}>2 people</button>
                 <button className="button-85" role="button" onClick={() => handleTravelGroup("3-4 people")}>3-4 people</button>
                 <button className="button-85" role="button" onClick={() => handleTravelGroup("5 or more")}>5 or more</button>
-            <button className="button-74" role="button" onClick={handlePost}>Generate</button>
-            <h3>{outputText}</h3>
+                <button className="button-74" role="button" onClick={handlePost}>Generate</button>
+                <h3>{climate ? climate : "waiting for response"}</h3>
+                
+
         </div>
         </>
     )
