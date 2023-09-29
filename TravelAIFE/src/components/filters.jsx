@@ -26,18 +26,19 @@ const Filters = () => {
                 continent: continent,
             })
             .then ((response) => {
+                setOutputText(response.data.outputText)
 
             }) 
     }
 
-    useEffect (() => {
-        axios
-            .get("http://127.0.0.1:8000/api/filter/generate")
-            .then((response) => {
-                setOutputText(response.data.outputText)
-            })
+    // useEffect (() => {
+    //     axios
+    //         .get("http://127.0.0.1:8000/api/filter/generate")
+    //         .then((response) => {
+    //             setOutputText(response.data.outputText)
+    //         })
             
-    })
+    // })
 
     const handleOpen = () => {
         setOpen(!open);
