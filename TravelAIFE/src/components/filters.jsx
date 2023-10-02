@@ -12,7 +12,7 @@ const Filters = () => {
     const [climate, setClimate] = useState("");
     const [travelGroup, setTravelGroup] = useState("");
     const [continent, setContinent] = useState("");
-    const [outputText, setOutputText] = useState("");
+    const [output, setOutput] = useState("");
 
     const handlePost = () => {
         axios
@@ -27,7 +27,7 @@ const Filters = () => {
             })
             .then ((response) => {
                 console.log("Response received:", response.data);
-                setOutputText(response.data.outputText);
+                setOutput(response.data.output_text);
                 
             }) 
     }
@@ -175,7 +175,7 @@ const Filters = () => {
                 <button className="button-85" role="button" onClick={() => handleTravelGroup("3-4 people")}>3-4 people</button>
                 <button className="button-85" role="button" onClick={() => handleTravelGroup("5 or more")}>5 or more</button>
                 <button className="button-74" role="button" onClick={handlePost}>Generate</button>
-                <h3>{climate ? climate : "waiting for response"}</h3>
+                <h3>{output}</h3>
                 
 
         </div>
