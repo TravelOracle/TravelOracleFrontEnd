@@ -13,6 +13,7 @@ const Filters = () => {
     const [travelGroup, setTravelGroup] = useState("");
     const [continent, setContinent] = useState("");
     const [output, setOutput] = useState("");
+    const [respArr, setRespArr] = useState([]);
 
     const handlePost = () => {
         axios
@@ -27,8 +28,8 @@ const Filters = () => {
             })
             .then ((response) => {
                 console.log("Response received:", response.data);
-                setOutput(response.data.output_text);
-                
+                // setOutput(response.data.output_text);
+                setRespArr(response.data.output_text.split("\n\n"));
             }) 
     }
 
@@ -175,7 +176,16 @@ const Filters = () => {
                 <button className="button-85" role="button" onClick={() => handleTravelGroup("3-4 people")}>3-4 people</button>
                 <button className="button-85" role="button" onClick={() => handleTravelGroup("5 or more")}>5 or more</button>
                 <button className="button-74" role="button" onClick={handlePost}>Generate</button>
-                <h3>{output}</h3>
+                {/* <h3>{output}</h3> */}
+                <div>
+                    {respArr.map((response) => (
+                        <div>
+                            <p>
+                                {response}
+                            </p>
+                        </div>
+                    ))}
+                </div>
                 
 
         </div>
