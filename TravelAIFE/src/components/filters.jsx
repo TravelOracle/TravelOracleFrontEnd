@@ -181,25 +181,34 @@ const Filters = () => {
                 </div>
             ]}
         />
-            <h3 className="filterTitle">Home</h3>    
+
+        <Dropdown
+            open={open}
+            trigger={<button onClick={handleOpen}>Departing from</button>}
+            menu={[
+                <div>
                 <button className="button-85" role="button" onClick={() => handleHome("Wilmington")}>Wilmington</button>
                 <button className="button-85" role="button" onClick={() => handleHome("San Diego")}>San Diego</button>
                 <button className="button-85" role="button" onClick={() => handleHome("Mexico City")}>Mexico City</button>
                 <button className="button-85" role="button" onClick={() => handleHome("Perth")}>Perth</button>
                 <button className="button-85" role="button" onClick={() => handleHome("Toronto")}>Toronto</button>
                 <button className="button-85" role="button" onClick={() => handleHome("Istanbul")}>Istanbul</button>
-            <h3 className="filterTitle">Climate</h3>
-                <button className="button-85" role="button" onClick={() => handleClimate("Arid")}>Arid</button>
-                <button className="button-85" role="button" onClick={() => handleClimate("Rainy")}>Rainy</button>
-                <button className="button-85" role="button" onClick={() => handleClimate("Cold")}>Cold</button>
-                <button className="button-85" role="button" onClick={() => handleClimate("Sunny")}>Sunny</button>
-            <h3 className="filterTitle">Travel Group</h3>
+                </div>
+            ]}
+        />
+
+        <Dropdown
+            open={open}
+            trigger={<button onClick={handleOpen}>Number of travelers</button>}
+            menu={[
+                <div>
                 <button className="button-85" role="button" onClick={() => handleTravelGroup("Solo")}>Solo</button>
                 <button className="button-85" role="button" onClick={() => handleTravelGroup("2 people")}>2 people</button>
                 <button className="button-85" role="button" onClick={() => handleTravelGroup("3-4 people")}>3-4 people</button>
                 <button className="button-85" role="button" onClick={() => handleTravelGroup("5 or more")}>5 or more</button>
-                <button className="button-74" role="button" onClick={handlePost}>Generate</button>
-                {/* <h3>{output}</h3> */}
+                </div>
+            ]}
+        />
                 <div>
                     {respArr.map((response) => (
                         <div>
