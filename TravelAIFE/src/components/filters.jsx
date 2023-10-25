@@ -132,7 +132,11 @@ const Filters = () => {
                  <br />
                  <br />
 
-            <h3 className="filterTitle">Continent/Area</h3>
+        <Dropdown
+            open={open}
+            trigger={<button onClick={handleOpen}>Area of the world</button>}
+            menu={[
+                <div>
                 <button className="button-85" role="button" onClick={() => handleContinent("Europe")}>Europe</button>
                 <button className="button-85" role="button" onClick={() => handleContinent("Asia")}>Asia</button>
                 <button className="button-85" role="button" onClick={() => handleContinent("Africa")}>Africa</button>
@@ -140,6 +144,10 @@ const Filters = () => {
                 <button className="button-85" role="button" onClick={() => handleContinent("Middle East")}>Middle East</button>
                 <button className="button-85" role="button" onClick={() => handleContinent("Caribbean")}>Caribbean</button>
                 <button className="button-85" role="button" onClick={() => handleContinent("South East Asia")}>South East Asia</button>
+                </div>
+            ]}
+        />
+
             <h3 className="filterTitle">Budget</h3>
                 <button className="button-85" role="button" onClick={() => handleTravelBudget("Under $200")}>Under $200</button>
                 <button className="button-85" role="button" onClick={() => handleTravelBudget("$201-$500")}>$201-$500</button>
