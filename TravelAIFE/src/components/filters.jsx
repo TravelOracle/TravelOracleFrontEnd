@@ -5,6 +5,12 @@ import Dropdown from "./dropdown";
 
 const Filters = () => {
     const [open, setOpen] = React.useState(false);
+    const [openArea, setOpenArea] = React.useState(false);
+    const [openInterest, setOpenInterest] = React.useState(false);
+    const [openBudget, setOpenBudget] = React.useState(false);
+    const [openHome, setOpenHome] = React.useState(false);
+    const [openClimate, setOpenClimate] = React.useState(false);
+    const [openGroup, setOpenGroup] = React.useState(false);
     const [environment, setEnvironment] = useState("");
     const [interest, setInterest] = useState("");
     const [travelBudget, setTravelBudget] = useState("");
@@ -14,6 +20,7 @@ const Filters = () => {
     const [continent, setContinent] = useState("");
     const [output, setOutput] = useState("");
     const [respArr, setRespArr] = useState([]);
+
 
     const handlePost = () => {
         axios
@@ -44,6 +51,31 @@ const Filters = () => {
 
     const handleOpen = () => {
         setOpen(!open);
+      };
+
+    const handleOpenArea = () => {
+        setOpenArea(!openArea);
+    };
+
+    const handleOpenInterest = () => {
+        setOpenInterest(!openInterest);
+      
+    };
+
+    const handleOpenBudget = () => {
+        setOpenBudget(!openBudget);
+      };
+
+    const handleOpenHome = () => {
+        setOpenHome(!openHome);
+      }; 
+
+    const handleOpenClimate = () => {
+        setOpenClimate(!openClimate);
+      }; 
+
+    const handleOpenGroup = () => {
+        setOpenGroup(!openGroup);
       };
 
     const handleEnvironment = (selectedEnvironment) => {
@@ -133,8 +165,8 @@ const Filters = () => {
                  <br />
 
         <Dropdown
-            open={open}
-            trigger={<button onClick={handleOpen}>Area of the world</button>}
+            open={openArea}
+            trigger={<button onClick={handleOpenArea}>Area of the world</button>}
             menu={[
                 <div>
                 <button className="button-85" role="button" onClick={() => handleContinent("Europe")}>Europe</button>
@@ -149,8 +181,8 @@ const Filters = () => {
         />
 
         <Dropdown
-            open={open}
-            trigger={<button onClick={handleOpen}>What is your travel budget?</button>}
+            open={openBudget}
+            trigger={<button onClick={handleOpenBudget}>What is your travel budget?</button>}
             menu={[
                 <div>
                 <button className="button-85" role="button" onClick={() => handleTravelBudget("Under $200")}>Under $200</button>
@@ -168,8 +200,8 @@ const Filters = () => {
         />
 
         <Dropdown
-            open={open}
-            trigger={<button onClick={handleOpen}>What are your interests?</button>}
+            open={openInterest}
+            trigger={<button onClick={handleOpenInterest}>What are your interests?</button>}
             menu={[
                 <div>
                 <button className="button-85" role="button" onClick={() => handleInterest("Beach")}>Beach</button>
@@ -183,8 +215,8 @@ const Filters = () => {
         />
 
         <Dropdown
-            open={open}
-            trigger={<button onClick={handleOpen}>Departing from</button>}
+            open={openHome}
+            trigger={<button onClick={handleOpenHome}>Departing from</button>}
             menu={[
                 <div>
                 <button className="button-85" role="button" onClick={() => handleHome("Wilmington")}>Wilmington</button>
@@ -198,8 +230,8 @@ const Filters = () => {
         />
 
         <Dropdown
-            open={open}
-            trigger={<button onClick={handleOpen}>Number of travelers</button>}
+            open={openGroup}
+            trigger={<button onClick={handleOpenGroup}>Number of travelers</button>}
             menu={[
                 <div>
                 <button className="button-85" role="button" onClick={() => handleTravelGroup("Solo")}>Solo</button>
