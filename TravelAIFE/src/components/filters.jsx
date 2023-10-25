@@ -145,10 +145,14 @@ const Filters = () => {
                 <button className="button-85" role="button" onClick={() => handleContinent("Caribbean")}>Caribbean</button>
                 <button className="button-85" role="button" onClick={() => handleContinent("South East Asia")}>South East Asia</button>
                 </div>
-            ]}
+            ]} 
         />
 
-            <h3 className="filterTitle">Budget</h3>
+        <Dropdown
+            open={open}
+            trigger={<button onClick={handleOpen}>What is your travel budget?</button>}
+            menu={[
+                <div>
                 <button className="button-85" role="button" onClick={() => handleTravelBudget("Under $200")}>Under $200</button>
                 <button className="button-85" role="button" onClick={() => handleTravelBudget("$201-$500")}>$201-$500</button>
                 <button className="button-85" role="button" onClick={() => handleTravelBudget("$501-$1,000")}>$501-$1,000</button>
@@ -159,13 +163,24 @@ const Filters = () => {
                 <button className="button-85" role="button" onClick={() => handleTravelBudget("$10,001-$14,000")}>$10,001-$14,000</button>
                 <button className="button-85" role="button" onClick={() => handleTravelBudget("$14,001-$20,000")}>$14,001-$20,000</button>
                 <button className="button-85" role="button" onClick={() => handleTravelBudget("Money is no object")}>Money is no object</button>
-            <h3 className="filterTitle">Interests</h3>
+                </div>
+            ]}
+        />
+
+        <Dropdown
+            open={open}
+            trigger={<button onClick={handleOpen}>What are your interests?</button>}
+            menu={[
+                <div>
                 <button className="button-85" role="button" onClick={() => handleInterest("Beach")}>Beach</button>
                 <button className="button-85" role="button" onClick={() => handleInterest("Historical Sites")}>Historical Sites</button>
                 <button className="button-85" role="button" onClick={() => handleInterest("Restaurants")}>Restaurants</button>
                 <button className="button-85" role="button" onClick={() => handleInterest("Wine Tasting")}>Wine Tasting</button>
                 <button className="button-85" role="button" onClick={() => handleInterest("Outdoor Activities")}>Outdoor Activities</button>
                 <button className="button-85" role="button" onClick={() => handleInterest("Sports")}>Sports</button>
+                </div>
+            ]}
+        />
             <h3 className="filterTitle">Home</h3>    
                 <button className="button-85" role="button" onClick={() => handleHome("Wilmington")}>Wilmington</button>
                 <button className="button-85" role="button" onClick={() => handleHome("San Diego")}>San Diego</button>
